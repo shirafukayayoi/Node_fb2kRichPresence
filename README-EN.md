@@ -1,11 +1,13 @@
 # Node_fb2kRichPresence
 
-## Result
+[English README](README-EN.md)
+
+## Execution Result
 
 ![image](https://imgur.com/ctPTIpW.png)
 
-`Play on Youtube` → The YouTube URL of the currently playing song  
-`View Channel Link` → The channel URL of the currently playing song  
+`Play on Youtube` → The Youtube URL of the music you are listening to  
+`View Channel Link` → The Channel URL of the music you are listening to  
 
 ## Installation
 
@@ -18,7 +20,7 @@ git clone https://github.com/shirafukayayoi/Node_fb2kRichPresence
 ### Install the foobar2000 plugin
 
 [Download nowplaying2](https://github.com/foxx1337/foo_nowplaying2/releases/tag/v4.2)  
-After downloading, go to `File` → `Preferences` → `Tools` → `Now Playing 2` and set the format as follows:
+After downloading, go to `file` → `Preferences` → `Tools` → `Now Playing 2` settings, and set the Format to:
 
 ```text
 %title%$char(10)
@@ -32,15 +34,15 @@ After downloading, go to `File` → `Preferences` → `Tools` → `Now Playing 2
 %albumarturl%
 ```
 
-Configure the file settings accordingly.
+Then, set the File path.
 
 [Download YoutubeSource](https://fy.3dyd.com/download/)  
-After downloading, go to `File` → `Preferences` → `Tools` → `Youtube Source`, and under `Maintenance`, input your YouTube API key.  
-For Japanese users, you can refer to my past article [note-foobar2000のすゝめ【フリーソフト/音楽プレイヤー】](https://note.com/shirafuka_yayoi/n/n92af2e5c4673?from=notice) for more details.  
-Then, enjoy music by going to `File` → `YoutubeSource`.
+After downloading, go to `file` → `Preferences` → `Tools` → `Youtube Source` settings, and enter the Youtube API in `Maintenance`.  
+Japanese users can refer to the article [note-foobar2000のすゝめ【フリーソフト/音楽プレイヤー】](https://note.com/shirafuka_yayoi/n/n92af2e5c4673?from=notice) written by the author.  
+After that, enjoy music from `File` → `YoutubeSource`.
 
 [Download Playback Statistics](https://www.foobar2000.org/components/view/foo_playcount)  
-This will allow you to display the playback count.
+By installing this, you can display the play count.
 
 ### Install the packages
 
@@ -50,24 +52,36 @@ npm install
 
 ### Modify index.js
 
-In the part `const nowPlayingFilePath`, input the directory of the text file set with **Now Playing 2**.
+Set the directory of the text file configured in **Now Playing 2** in `const nowPlayingFilePath`.
 
-### To display as 'Now Playing', install Vencord
+### If you want to create an executable file
 
-Install [Vencord-foobar](https://github.com/tunip3/Vencord-foobar/tree/main) by running the following in PowerShell:
+You can use nexe to create an executable file.  
 
-```text
+```bash
+nexe -i index.js -o Node_fb2kRichPresence.exe -t windows-x64-14.15.3
+```
+
+### If you want to display while playing, download Vencord
+
+Install [Vencord-foobar](https://github.com/tunip3/Vencord-foobar/tree/main).
+
+```bash
 Invoke-Expression (Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/tunip3/Vencord-foobar/main/Install-RicherCider.ps1' -UseBasicParsing).Content
 ```
 
+Run this in PowerShell.
+
 ### Execute!
 
-`node index.js`
+```bash
+node index.js
+```
 
 ## Known Issues
 
-- Album art for local files is not displayed on Discord.
+- Album art is not displayed on Discord for local files.
 ![image](https://i.imgur.com/6w6LD8O.png)
-- If playback starts from the middle of a song, the progress bar and time will be out of sync.
+- If you start playing from the middle, the playback bar and time will be misaligned.
 
 *This readme converts Japanese using ChatGPT.

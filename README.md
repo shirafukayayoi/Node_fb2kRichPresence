@@ -50,6 +50,12 @@
 
 `const nowPlayingFilePath`の部分に、**Now Playing2**で設定したテキストファイルのディレクトリを入れる。
 
+### exe化したい場合
+
+nexeを使ってexe化することができます。  
+
+`nexe -i index.js -o Node_fb2kRichPresence.exe -t windows-x64-14.15.3`
+
 ### 再生中の表示にしたい場合、Vencardのダウンロード
 
 [Vencord-foobar](https://github.com/tunip3/Vencord-foobar/tree/main)を入れる。  
